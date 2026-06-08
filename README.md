@@ -44,6 +44,84 @@ Funcionalidades:
 - Calcula a distância entre todos os pares de objetos
 - Determina possíveis colisões utilizando a soma dos raios dos objetos
 
-## Testes
-
 ## Instruções para acesso e exemplo de testes
+
+### Pré-requisitos
+
+Antes de iniciar, certifique-se de possuir os seguintes softwares instalados:
+
+* .NET SDK 9.0 ou superior
+* Oracle Database
+* Git
+
+### Clonando o repositório
+
+```bash
+git clone https://github.com/Primeira-Global-Solution-2semstre/Csharp
+cd Csharp
+```
+
+### Configurando a conexão com o banco de dados
+
+Abra o arquivo `appsettings.json` e configure a string de conexão com seu banco Oracle:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "User Id=usuario;Password=senha;Data Source=host:1521/servico"
+  }
+}
+```
+
+### Aplicando as migrations
+
+Execute o comando abaixo para criar ou atualizar as tabelas do banco de dados:
+
+```bash
+dotnet ef database update
+```
+
+### Executando a aplicação
+
+Inicie a API com o comando:
+
+```bash
+dotnet run
+```
+
+Após a inicialização, a API estará disponível em um endereço semelhante a:
+
+```text
+https://localhost:5001
+```
+
+ou
+
+```text
+http://localhost:5000
+```
+
+### Acessando a documentação Swagger
+
+Com a aplicação em execução, acesse:
+
+```text
+https://localhost:5001/swagger
+```
+
+Através do Swagger é possível visualizar e testar todos os endpoints da API.
+
+### Endpoints disponíveis
+
+#### Objetos Espaciais
+
+* `GET /api/spaceobjects`
+* `GET /api/spaceobjects/{id}`
+* `POST /api/spaceobjects`
+* `PUT /api/spaceobjects/{id}`
+* `DELETE /api/spaceobjects/{id}`
+
+#### Predições de Colisão
+
+* `GET /api/predictions`
+
