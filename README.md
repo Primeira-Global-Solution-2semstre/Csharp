@@ -9,6 +9,9 @@ Este projeto foi desenvolvido utilizando ASP.NET Core, Entity Framework Core e O
 ## Video de Demonstração
 https://youtu.be/1y4Ur5C31Vs
 
+## Video pitch
+https://youtu.be/huuaQSYgBt4
+
 ## Diagramas
   - Diagrama da arquitetura
 
