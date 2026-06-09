@@ -1,3 +1,165 @@
+<details>
+<summary># Clique aqui se for referente a devops</summary>
+
+  # Como Executar o Projeto
+
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de que as seguintes ferramentas estão instaladas:
+
+* Git
+* Docker
+* Docker Compose
+
+---
+
+## Clonar o Repositório
+
+```bash
+git clone https://github.com/Primeira-Global-Solution-2semstre/Csharp
+cd Csharp
+git checkout devops
+```
+
+---
+
+## Construir e Iniciar o Ambiente
+
+Construa as imagens e inicie os containers em segundo plano:
+
+```bash
+docker compose up -d --build
+```
+
+Verifique se ambos os containers estão em execução:
+
+```bash
+docker ps
+```
+
+---
+
+## Visualizar os Logs dos Containers
+
+Logs do container da aplicação:
+
+```bash
+docker logs app-rm566230
+```
+
+Logs do container do banco de dados Oracle:
+
+```bash
+docker logs oracle-rm566230
+```
+
+---
+
+## Verificar o Container da Aplicação
+
+Acesse o container da aplicação:
+
+```bash
+docker exec -it app-rm566230 sh
+```
+
+Exiba o usuário atual:
+
+```bash
+whoami
+```
+
+Exiba o diretório atual:
+
+```bash
+pwd
+```
+
+Exiba a estrutura de diretórios:
+
+```bash
+ls -l
+```
+
+---
+
+## Verificar o Container do Banco Oracle
+
+Acesse o container Oracle:
+
+```bash
+docker exec -it oracle-rm566230 bash
+```
+
+Exiba o usuário atual:
+
+```bash
+whoami
+```
+
+Exiba o diretório atual:
+
+```bash
+pwd
+```
+
+Exiba a estrutura de diretórios:
+
+```bash
+ls -l
+```
+
+---
+
+## Conectar ao Banco de Dados Oracle
+
+Conecte-se utilizando o SQL*Plus:
+
+```bash
+sqlplus system/Oracle123@FREEPDB1
+```
+
+---
+
+## Verificar os Objetos do Banco de Dados
+
+Liste todas as tabelas:
+
+```sql
+SELECT table_name
+FROM user_tables;
+```
+
+Verifique os dados persistidos:
+
+```sql
+SELECT * FROM PREDICTIONS;
+```
+
+```sql
+SELECT * FROM SPACEOBJECTS;
+```
+
+---
+
+## Acessar a Documentação Swagger
+
+Após os containers estarem em execução, acesse a interface Swagger utilizando o endereço IP público da máquina virtual na nuvem:
+
+```text
+http://<IP_EXTERNO>:8080/swagger
+```
+
+Exemplo:
+
+```text
+http://34.xxx.xxx.xxx:8080/swagger
+```
+
+A interface Swagger pode ser utilizada para testar todos os endpoints CRUD disponibilizados pela API.
+
+  </details>
+Ignore o dropdown acima se for somente referente a materia de Csharp   
 # NEO HORIZON - PREDIÇÃO DE COLISÃO DE DETRITOS ORBITAIS
 A Neo Horizon API é uma aplicação REST desenvolvida em ASP.NET Core para o gerenciamento de objetos espaciais e simulação de possíveis colisões entre eles.
 
