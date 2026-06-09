@@ -1,0 +1,40 @@
+services:
+
+  app-rm566230:
+    build: .
+    container_name: app-rm566230
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+
+    depends_on:
+      - oracle-rm566230
+
+    networks:
+      - neohorizon-network
+
+  oracle-rm566230:
+    image: gvenzl/oracle-free
+
+    container_name: oracle-rm566230
+
+    environment:
+      ORACLE_PASSWORD: Oracle123
+
+    ports:
+      - "1522:1521"
+
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+
+    networks:
+      - neohorizon-network
+
+volumes:
+  oracle_data:
+
+networks:
+  neohorizon-network:
