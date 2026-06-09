@@ -1,3 +1,5 @@
+favor ler o readme da branch de devops caso esteja interessado no desenvolvimento referente à matéria de Devops Tools & Cloud Computing
+
 # NEO HORIZON - PREDIÇÃO DE COLISÃO DE DETRITOS ORBITAIS
 A Neo Horizon API é uma aplicação REST desenvolvida em ASP.NET Core para o gerenciamento de objetos espaciais e simulação de possíveis colisões entre eles.
 
