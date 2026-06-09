@@ -1,4 +1,179 @@
-favor ler o readme da branch de devops caso esteja interessado no desenvolvimento referente à matéria de Devops Tools & Cloud Computing
+
+<details>
+<summary># Clique aqui se for referente a devops</summary>
+
+  # Arquitetura da Solução
+  <img width="623" height="973" alt="Untitled Diagram drawio (1)" src="https://github.com/user-attachments/assets/2c243cca-af77-4f42-9b86-4cd565664db9" />
+  
+A solução foi implantada em uma máquina virtual hospedada no Google Cloud Platform. Dentro da máquina virtual são executados dois containers Docker conectados pela mesma rede interna (neohorizon-network).
+
+O container app-rm566230 executa a API ASP.NET Core responsável pelas operações CRUD da aplicação e expõe a porta 8080 para acesso externo através da interface Swagger.
+
+O container oracle-rm566230 executa o banco de dados Oracle Free, responsável pela persistência das informações da aplicação. Os dados são armazenados em um volume nomeado (oracle_data), garantindo a persistência mesmo após a reinicialização dos containers.
+
+A comunicação entre a aplicação e o banco de dados ocorre exclusivamente pela rede Docker interna, enquanto os usuários acessam a API através do endereço público da máquina virtual na nuvem.
+  
+
+# Como Executar o Projeto
+
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de que as seguintes ferramentas estão instaladas:
+
+* Git
+* Docker
+* Docker Compose
+
+---
+
+## Clonar o Repositório
+
+```bash
+git clone https://github.com/Primeira-Global-Solution-2semstre/Csharp
+cd Csharp
+git checkout devops
+```
+
+---
+
+## Construir e Iniciar o Ambiente
+
+Construa as imagens e inicie os containers em segundo plano:
+
+```bash
+docker compose up -d --build
+```
+
+Verifique se ambos os containers estão em execução:
+
+```bash
+docker ps
+```
+
+---
+
+## Visualizar os Logs dos Containers
+
+Logs do container da aplicação:
+
+```bash
+docker logs app-rm566230
+```
+
+Logs do container do banco de dados Oracle:
+
+```bash
+docker logs oracle-rm566230
+```
+
+---
+
+## Verificar o Container da Aplicação
+
+Acesse o container da aplicação:
+
+```bash
+docker exec -it app-rm566230 sh
+```
+
+Exiba o usuário atual:
+
+```bash
+whoami
+```
+
+Exiba o diretório atual:
+
+```bash
+pwd
+```
+
+Exiba a estrutura de diretórios:
+
+```bash
+ls -l
+```
+
+---
+
+## Verificar o Container do Banco Oracle
+
+Acesse o container Oracle:
+
+```bash
+docker exec -it oracle-rm566230 bash
+```
+
+Exiba o usuário atual:
+
+```bash
+whoami
+```
+
+Exiba o diretório atual:
+
+```bash
+pwd
+```
+
+Exiba a estrutura de diretórios:
+
+```bash
+ls -l
+```
+
+---
+
+## Conectar ao Banco de Dados Oracle
+
+Conecte-se utilizando o SQL*Plus:
+
+```bash
+sqlplus system/Oracle123@FREEPDB1
+```
+
+---
+
+## Verificar os Objetos do Banco de Dados
+
+Liste todas as tabelas:
+
+```sql
+SELECT table_name
+FROM user_tables;
+```
+
+Verifique os dados persistidos:
+
+```sql
+SELECT * FROM PREDICTIONS;
+```
+
+```sql
+SELECT * FROM SPACEOBJECTS;
+```
+
+---
+
+## Acessar a Documentação Swagger
+
+Após os containers estarem em execução, acesse a interface Swagger utilizando o endereço IP público da máquina virtual na nuvem:
+
+```text
+http://<IP_EXTERNO>:8080/swagger
+```
+
+Exemplo:
+
+```text
+http://34.xxx.xxx.xxx:8080/swagger
+```
+
+A interface Swagger pode ser utilizada para testar todos os endpoints CRUD disponibilizados pela API.
+
+  </details>
+Ignore o dropdown acima se for somente referente a materia de Csharp   
+
 
 # NEO HORIZON - PREDIÇÃO DE COLISÃO DE DETRITOS ORBITAIS
 A Neo Horizon API é uma aplicação REST desenvolvida em ASP.NET Core para o gerenciamento de objetos espaciais e simulação de possíveis colisões entre eles.
