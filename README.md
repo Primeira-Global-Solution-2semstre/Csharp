@@ -1,7 +1,19 @@
 <details>
 <summary># Clique aqui se for referente a devops</summary>
 
-  # Como Executar o Projeto
+  # Arquitetura da Solução
+  <img width="623" height="973" alt="Untitled Diagram drawio (1)" src="https://github.com/user-attachments/assets/2c243cca-af77-4f42-9b86-4cd565664db9" />
+  
+A solução foi implantada em uma máquina virtual hospedada no Google Cloud Platform. Dentro da máquina virtual são executados dois containers Docker conectados pela mesma rede interna (neohorizon-network).
+
+O container app-rm566230 executa a API ASP.NET Core responsável pelas operações CRUD da aplicação e expõe a porta 8080 para acesso externo através da interface Swagger.
+
+O container oracle-rm566230 executa o banco de dados Oracle Free, responsável pela persistência das informações da aplicação. Os dados são armazenados em um volume nomeado (oracle_data), garantindo a persistência mesmo após a reinicialização dos containers.
+
+A comunicação entre a aplicação e o banco de dados ocorre exclusivamente pela rede Docker interna, enquanto os usuários acessam a API através do endereço público da máquina virtual na nuvem.
+  
+
+# Como Executar o Projeto
 
 ## Pré-requisitos
 
