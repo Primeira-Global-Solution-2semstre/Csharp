@@ -4,6 +4,8 @@ A Neo Horizon API é uma aplicação REST desenvolvida em ASP.NET Core para o ge
 O sistema permite cadastrar, consultar, atualizar e remover objetos espaciais armazenados em banco de dados. Além disso, possui uma funcionalidade de predição que calcula a posição futura dos objetos e identifica possíveis colisões com base na distância entre eles e em seus respectivos raios.
 
 Este projeto foi desenvolvido utilizando ASP.NET Core, Entity Framework Core e Oracle Database, seguindo uma arquitetura em camadas para facilitar a manutenção e organização do código.
+## Video de Demonstração
+https://youtu.be/1y4Ur5C31Vs
 
 ## Diagramas
   - Diagrama da arquitetura
