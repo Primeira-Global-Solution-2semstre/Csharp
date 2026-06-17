@@ -41,7 +41,7 @@ public class SpaceObjectController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, SpaceObject obj)
+    public async Task<IActionResult> Update(int id,[FromBody] SpaceObject obj)
     {
         await _service.UpdateAsync(id, obj);
 
